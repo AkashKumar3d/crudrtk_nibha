@@ -1,23 +1,16 @@
 {
   "name": "crudapi",
   "version": "1.0.0",
-  "main": "app.js",
   "type": "module",
+  "main": "app.js",
+  "description": "This is my CRUD API project",
+  "author": "Akash Kumar Singh",
+  "license": "ISC",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "seed": "node seed.js"
   },
-  "author": "akash kumar singh",
-  "license": "ISC",
-  "description": "this is my project",
-  "repository": {
-    "type": "git",
-    "url": "."
-  },
-  "keywords": [
-    "."
-  ],
   "dependencies": {
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
@@ -25,5 +18,12 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.3"
-  }
+  },
+  "keywords": [
+    "crud",
+    "api",
+    "nodejs",
+    "express",
+    "mongodb"
+  ]
 }
