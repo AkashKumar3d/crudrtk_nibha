@@ -5,7 +5,7 @@ import userRoutes from "./route/user.js";
 
 const app=express()
 dotenv.config();
-let port =  process.env.PORT
+let port =  process.env.PORT || 4000
 
 
 app.use(express.json());
