@@ -40,3 +40,26 @@ export const deleteUser = async (req, res) => {
     }
   };
   
+
+  // Update user by ID
+export const updateUser = async (req, res) => {
+    try {
+      const { id } = req.params; // Get user ID from URL params
+      const { name, email, age, password, repassword, gender } = req.body;
+  
+      const updatedUser = await User.findByIdAndUpdate(
+        id,
+        { name, email, age, password, repassword, gender },
+        { new: true, runValidators: true } // Return the updated user & validate fields
+      );
+  
+      if (!updatedUser) {
+        return res.status(404).json({ message: "User not found" });
+      }
+  
+      res.status(200).json({ message: "User updated successfully", user: updatedUser });
+    } catch (error) {
+      res.status(500).json({ message: "Error updating user", error: error.message });
+    }
+  };
+  
