@@ -21,3 +21,22 @@ export const getUsers = async (req, res) => {
     res.status(500).json({ message: "Error fetching users", error: error.message });
   }
 };
+
+
+// Delete user by ID
+export const deleteUser = async (req, res) => {
+    try {
+      const { id } = req.params; // Get user ID from URL params
+  
+      const deletedUser = await User.findByIdAndDelete(id);
+  
+      if (!deletedUser) {
+        return res.status(404).json({ message: "User not found" });
+      }
+  
+      res.status(200).json({ message: "User deleted successfully", user: deletedUser });
+    } catch (error) {
+      res.status(500).json({ message: "Error deleting user", error: error.message });
+    }
+  };
+  
